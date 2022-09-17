@@ -31,7 +31,10 @@ struct ContentView: View {
   var swipeDownToDismiss: some Gesture {
     DragGesture()
       .onChanged { gesture in
-        guard gesture.location.x > 30 else { return }
+        guard
+          gesture.location.x > 30,
+          gesture.translation.height > 0
+        else { return }
         draggedOffset = gesture.translation
       }
       .onEnded { gesture in
