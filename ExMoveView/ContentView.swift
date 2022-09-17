@@ -43,9 +43,8 @@ struct ContentView: View {
   }
   
   func checkIsDismissable(gesture: _ChangedGesture<DragGesture>.Value) -> Bool {
-    let dismissableLocation = gesture.translation.height > (UIScreen.main.bounds.height / 3)
-    let dismissableVolocity = (gesture.predictedEndLocation - gesture.location).y > 300
-    print(dismissableLocation, dismissableVolocity)
+    let dismissableLocation = gesture.translation.height > 50
+    let dismissableVolocity = (gesture.predictedEndLocation - gesture.location).y > 50
     return dismissableLocation || dismissableVolocity
   }
 }
